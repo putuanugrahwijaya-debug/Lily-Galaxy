@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Direktori destinasi liburan Bali, Jawa, dan Lombok." />
+  <title>Lily Galaxy | Destinasi Bali, Jawa & Lombok</title>
+
+  <!-- Font Google (opsional, ada fallback di CSS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Hubungkan file CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <!-- Logo brand (kiri) -->
+      <a href="#beranda" class="logo">🌴 Lily<span>Galaxy</span></a>
+
+      <!-- Tombol hamburger (tampil di HP) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu">☰</button>
+
+      <!-- Menu navigasi + tombol kontak (kanan) -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#beranda">Beranda</a>
+        <a href="#destinasi">Destinasi</a>
+        <a href="#kontak">Kontak</a>
+        <a href="https://wa.me/6281246894030" target="_blank" rel="noopener" class="btn btn--primary">Hubungi Kami</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="beranda">
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <h1>Jelajahi Keindahan <br /><span>Bali, Jawa & Lombok</span></h1>
+      <p>Temukan pantai, gunung, dan budaya terbaik untuk liburan impianmu.</p>
+
+      <!-- Search bar real-time -->
+      <!-- Search bar real-time + dropdown saran -->
+<div class="search-box" id="searchBox">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Cari destinasi, kota, atau kategori..."
+    autocomplete="off"
+    role="combobox"
+    aria-expanded="false"
+    aria-controls="suggestions"
+  />
+  <span class="search-box__icon">🔍</span>
+
+  <!-- Daftar saran: diisi otomatis oleh script.js -->
+  <ul class="suggestions" id="suggestions" role="listbox" hidden></ul>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DESTINASI ================= -->
+  <main class="container section" id="destinasi">
+    <h2 class="section__title">Pilih Destinasi Favoritmu</h2>
+
+    <!-- Tab filter wilayah -->
+    <div class="filter-tabs" id="filterTabs">
+      <button class="tab active" data-wilayah="Semua">Semua</button>
+      <button class="tab" data-wilayah="Bali">Bali</button>
+      <button class="tab" data-wilayah="Jawa">Jawa</button>
+      <button class="tab" data-wilayah="Lombok">Lombok</button>
+    </div>
+
+    <!-- Info jumlah hasil -->
+    <p class="result-info" id="resultInfo"></p>
+
+    <!-- Grid kartu: diisi otomatis oleh script.js -->
+    <div class="grid" id="destinationGrid"></div>
+
+    <!-- Pesan jika tidak ada hasil -->
+    <div class="empty-state" id="emptyState" hidden>
+      <p>😕 Destinasi tidak ditemukan.</p>
+      <small>Coba kata kunci atau wilayah lain.</small>
+    </div>
+  </main>
+
+  <!-- ================= MODAL DETAIL ================= -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__box" role="dialog" aria-modal="true">
+      <button class="modal__close" id="modalClose" aria-label="Tutup">&times;</button>
+
+      <img class="modal__img" id="modalImg" src="" alt="" />
+
+      <div class="modal__body">
+        <span class="badge" id="modalKategori"></span>
+        <h3 id="modalNama"></h3>
+        <p class="modal__meta" id="modalMeta"></p>
+        <p class="modal__desc" id="modalDesc"></p>
+
+        <h4>Fasilitas</h4>
+        <ul class="facility-list" id="modalFasilitas"></ul>
+
+        <div class="modal__footer">
+          <div>
+            <small>Harga mulai dari</small>
+            <strong id="modalHarga"></strong>
+          </div>
+          <a id="modalWa" class="btn btn--wa" target="_blank" rel="noopener">💬 Tanya / Pesan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer" id="kontak">
+    <div class="container footer__inner">
+      <p>&copy; <span id="year"></span> Lily Galaxy.</p>
+      <p>📧 info @Lily Galaxy Tour &nbsp;|&nbsp; 📞 +62 812-4689-4030</p>
+    </div>
+  </footer>
+
+  <!-- Hubungkan file JavaScript (di akhir body agar DOM sudah siap) -->
+  <script src="script.js"></script>
+</body>
+</html>
